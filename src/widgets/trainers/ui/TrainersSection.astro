@@ -1,0 +1,103 @@
+---
+import { Image } from "astro:assets";
+import {
+  aaronPatelImage,
+  mayaSharmaImage,
+  oliviaTranImage,
+} from "@/shared/assets/images/yoga";
+
+const trainers = [
+  {
+    name: "Maya Sharma",
+    specialty: "Hatha & Breathwork",
+    image: mayaSharmaImage,
+  },
+  {
+    name: "Aaron Patel",
+    specialty: "Vinyasa Flow",
+    image: aaronPatelImage,
+  },
+  {
+    name: "Olivia Tran",
+    specialty: "Restorative Yoga",
+    image: oliviaTranImage,
+  },
+];
+---
+
+<section
+  id="trainers"
+  data-motion-section
+  class="motion-stagger scroll-mt-28 bg-white py-4"
+>
+  <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <article
+      data-motion-item
+      class="motion-card relative h-95 overflow-hidden rounded-[1.75rem] bg-[#a88968] p-6 text-white xl:h-115 xl:p-7"
+    >
+      <span
+        class="relative z-20 inline-flex rounded-full border border-white/35 bg-white/10 px-3 py-1.5 text-[10px] tracking-[0.15em] uppercase backdrop-blur"
+      >
+        Instructors
+      </span>
+      <h2
+        class="relative z-20 mt-5 max-w-48 text-3xl leading-[0.95] font-medium tracking-tighter xl:text-4xl"
+      >
+        Meet Our Expert Instructors
+      </h2>
+
+      <svg
+        viewBox="0 0 400 460"
+        preserveAspectRatio="none"
+        class="pointer-events-none absolute inset-0 z-10 size-full"
+        aria-hidden="true"
+      >
+        <path
+          id="trainer-card-ribbon"
+          d="M-65 245C82 190 181 327 465 205"
+          fill="none"
+          stroke="#c7aa89"
+          stroke-width="38"
+          stroke-linecap="round"></path>
+        <text
+          fill="white"
+          font-size="12"
+          font-weight="500"
+          letter-spacing="0.8"
+        >
+          <textPath href="#trainer-card-ribbon" startOffset="8%">
+            expert teachers • mindful movement • meet the instructors •
+          </textPath>
+        </text>
+      </svg>
+
+      <p
+        class="absolute inset-x-6 bottom-6 z-20 text-sm leading-6 text-white/75 xl:inset-x-7"
+      >
+        Learn from caring, experienced teachers who make every class feel
+        welcoming and personal.
+      </p>
+    </article>
+
+    {
+      trainers.map((trainer) => (
+        <article
+          data-motion-item
+          class="motion-card group relative h-95 overflow-hidden rounded-[1.75rem] xl:h-115"
+        >
+          <Image
+            src={trainer.image}
+            alt={`${trainer.name} practicing yoga`}
+            loading="lazy"
+            class="absolute inset-0 size-full rounded-[1.75rem] object-cover transition duration-700 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-transparent" />
+          <div class="absolute inset-x-3 bottom-3 rounded-2xl border border-white/20 bg-black/25 px-4 py-3 text-center text-white backdrop-blur-xl">
+            <p class="text-base font-semibold">{trainer.name}</p>
+            <p class="mt-1 text-xs text-white/70">{trainer.specialty}</p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

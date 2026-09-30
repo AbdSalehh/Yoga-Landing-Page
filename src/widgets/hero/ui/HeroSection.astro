@@ -1,0 +1,142 @@
+---
+import { Image } from "astro:assets";
+import hero from "@/assets/hero.webp";
+
+const heroRibbonText =
+  "FLEXIBILITY • MENTAL CLARITY • EMOTIONAL BALANCE • REDUCING STRESS • ";
+---
+
+<section
+  id="home"
+  data-motion-section
+  class="motion-reveal scroll-mt-28 bg-white pt-24 pb-4"
+>
+  <div
+    class="relative min-h-142.5 overflow-hidden rounded-[2.25rem] bg-lilac px-7 py-12 sm:px-12 lg:px-14 lg:py-14"
+  >
+    <!-- Desktop Visual Layer (hidden on mobile, visible on lg) -->
+    <div class="hidden lg:block">
+      <Image
+        src={hero}
+        class="absolute -top-10 right-0 min-h-48 w-[58%] scale-120 object-cover [clip-path:inset(0_0_0_50%)]"
+        alt="Woman practicing a seated yoga pose"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <Image
+        src={hero}
+        class="absolute -top-10 right-0 z-20 min-h-48 w-[58%] scale-120 object-cover object-center [clip-path:inset(0_45%_0_0)]"
+        alt="Woman practicing a seated yoga pose"
+        loading="eager"
+        fetchpriority="high"
+      />
+
+      <div
+        class="absolute inset-y-0 left-0 z-10 w-full bg-linear-to-r from-lilac via-lilac/95 to-transparent sm:w-[62%] lg:w-[52%]"
+      >
+      </div>
+
+      <svg
+        viewBox="0 0 1600 600"
+        preserveAspectRatio="xMidYMid slice"
+        class="pointer-events-none absolute inset-0 z-10 size-full"
+        aria-hidden="true"
+      >
+        <path
+          id="yoga-hero-ribbon-desktop"
+          d="M535 -74C785 -38 704 330 982 416C1220 490 1308 224 1715 250"
+          fill="none"
+          stroke="#7665ac"
+          stroke-width="72"
+          stroke-linecap="round"></path>
+        <text
+          fill="white"
+          font-size="18"
+          font-weight="600"
+          letter-spacing="1.25"
+        >
+          <textPath href="#yoga-hero-ribbon-desktop" startOffset="0%">
+            {heroRibbonText.repeat(4)}
+            <animate
+              attributeName="startOffset"
+              from="0%"
+              to="-50%"
+              dur="20s"
+              repeatCount="indefinite"></animate>
+          </textPath>
+        </text>
+      </svg>
+    </div>
+
+    <!-- Hero Content (Text) -->
+    <div class="relative z-20 flex min-h-auto items-center lg:min-h-117.5">
+      <div class="max-w-142.5">
+        <span
+          data-motion-item
+          class="inline-flex rounded-full border border-black/20 bg-white/35 px-4 py-2 text-xs font-medium backdrop-blur"
+        >
+          Mind-Body-Soul Balance
+        </span>
+        <h1
+          data-motion-item
+          class="mt-7 text-[clamp(2.5rem,4.7vw,5rem)] leading-[0.95] font-medium tracking-[-0.06em]"
+        >
+          Achieve balance in mind, body, and soul.
+        </h1>
+        <p
+          data-motion-item
+          class="mt-6 max-w-md text-sm leading-5 text-black/70"
+        >
+          Lorem ipsum dolor sit amet consectetur. Semper malesuada ut
+          ullamcorper sed tortor curabitur.
+        </p>
+      </div>
+    </div>
+
+    <!-- Mobile Visual Layer (visible on mobile, hidden on lg) -->
+    <div
+      class="relative -mx-7 mt-8 -mb-12 h-72 overflow-hidden sm:-mx-12 sm:h-96 lg:hidden"
+    >
+      <Image
+        src={hero}
+        class="absolute bottom-0 left-1/2 h-[120%] w-auto -translate-x-1/2 object-contain object-bottom [clip-path:inset(0_0_0_50%)]"
+        alt="Woman practicing a seated yoga pose"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <Image
+        src={hero}
+        class="absolute bottom-0 left-1/2 z-20 h-[120%] w-auto -translate-x-1/2 object-contain object-bottom [clip-path:inset(0_45%_0_0)]"
+        alt="Woman practicing a seated yoga pose"
+        loading="eager"
+        fetchpriority="high"
+      />
+
+      <svg
+        viewBox="0 0 500 320"
+        preserveAspectRatio="xMidYMid meet"
+        class="pointer-events-none absolute inset-0 z-10 size-full"
+        aria-hidden="true"
+      >
+        <path
+          id="yoga-hero-ribbon-mobile"
+          d="M20 50C130 90 140 230 255 230C360 230 390 120 485 100"
+          fill="none"
+          stroke="#7665ac"
+          stroke-width="38"
+          stroke-linecap="round"></path>
+        <text fill="white" font-size="11" font-weight="600" letter-spacing="1">
+          <textPath href="#yoga-hero-ribbon-mobile" startOffset="0%">
+            {heroRibbonText.repeat(4)}
+            <animate
+              attributeName="startOffset"
+              from="0%"
+              to="-50%"
+              dur="20s"
+              repeatCount="indefinite"></animate>
+          </textPath>
+        </text>
+      </svg>
+    </div>
+  </div>
+</section>

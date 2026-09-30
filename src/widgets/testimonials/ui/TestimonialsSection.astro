@@ -1,0 +1,211 @@
+---
+import { Image } from "astro:assets";
+import {
+  aaronPatelImage,
+  flexibilityYogaImage,
+  groupYogaImage,
+  heroYogaImage,
+  mayaSharmaImage,
+  mindfulYogaImage,
+  oliviaTranImage,
+  outdoorRetreatImage,
+} from "@/shared/assets/images/yoga";
+
+const testimonialRibbonText =
+  "Discover how our students have transformed their lives through our classes. Read their stories, improve strength, reduce stress, and find balance. • ";
+
+const studentPortraits = [
+  flexibilityYogaImage,
+  mindfulYogaImage,
+  mayaSharmaImage,
+  groupYogaImage,
+  outdoorRetreatImage,
+  aaronPatelImage,
+  heroYogaImage,
+];
+---
+
+<section id="reviews" data-motion-section class="scroll-mt-28 bg-white py-4">
+  <div
+    class="relative h-175 overflow-hidden rounded-[2.25rem] bg-white sm:h-[clamp(620px,42vw,720px)]"
+  >
+    <svg
+      viewBox="0 0 1000 430"
+      preserveAspectRatio="xMidYMid slice"
+      class="pointer-events-none absolute inset-0 z-0 size-full"
+      aria-hidden="true"
+    >
+      <path
+        id="student-testimonial-ribbon"
+        d="M-72 56C112 92 154 394 455 398C690 402 770 205 1072 238"
+        fill="none"
+        stroke="#ff9b76"
+        stroke-width="44"
+        stroke-linecap="round"></path>
+      <text fill="white" font-size="14" font-weight="500" letter-spacing="0.65">
+        <textPath href="#student-testimonial-ribbon" startOffset="0%">
+          {testimonialRibbonText.repeat(4)}
+          <animate
+            attributeName="startOffset"
+            from="0%"
+            to="-50%"
+            dur="20s"
+            repeatCount="indefinite"></animate>
+        </textPath>
+      </text>
+    </svg>
+
+    <!-- Floating Background Avatars (responsive positioning) -->
+    <div
+      class="motion-float absolute top-[5%] left-[5%] z-10 sm:top-[15%] sm:left-[10%]"
+    >
+      <Image
+        src={studentPortraits[0]}
+        alt="Yoga student"
+        loading="lazy"
+        class="size-12 rounded-full border-2 border-white object-cover sm:size-20 lg:size-24"
+      />
+    </div>
+
+    <div
+      class="motion-float absolute top-[4%] left-[40%] z-10 hidden sm:top-[13%] sm:left-[42%] sm:block"
+    >
+      <Image
+        src={studentPortraits[1]}
+        alt="Yoga student"
+        loading="lazy"
+        class="size-14 rounded-full border-2 border-white object-cover sm:size-16 lg:size-20"
+      />
+    </div>
+
+    <div
+      class="motion-float absolute top-[10%] left-[62%] z-10 hidden sm:block"
+    >
+      <Image
+        src={studentPortraits[2]}
+        alt="Yoga student"
+        loading="lazy"
+        class="size-14 rounded-full border-2 border-white object-cover sm:size-16 lg:size-20"
+      />
+    </div>
+
+    <div
+      class="motion-float absolute top-[28%] left-[12%] z-10 hidden sm:left-[24%] sm:block"
+    >
+      <Image
+        src={studentPortraits[3]}
+        alt="Yoga student"
+        loading="lazy"
+        class="size-14 rounded-full border-2 border-white object-cover sm:size-20 lg:size-24"
+      />
+    </div>
+
+    <div
+      class="motion-float absolute top-[55%] left-[3%] z-10 hidden sm:top-[52%] sm:left-[4%] sm:block"
+    >
+      <Image
+        src={studentPortraits[4]}
+        alt="Yoga student"
+        loading="lazy"
+        class="size-14 rounded-full border-2 border-white object-cover sm:size-20 lg:size-24"
+      />
+    </div>
+
+    <div
+      class="motion-float absolute top-[65%] left-[18%] z-10 hidden sm:block"
+    >
+      <Image
+        src={studentPortraits[5]}
+        alt="Yoga student"
+        loading="lazy"
+        class="size-14 rounded-full border-2 border-white object-cover sm:size-16 lg:size-20"
+      />
+    </div>
+
+    <div
+      class="motion-float absolute top-[5%] right-[5%] z-20 sm:top-[35%] sm:right-[3%]"
+    >
+      <Image
+        src={studentPortraits[6]}
+        alt="Yoga student"
+        loading="lazy"
+        class="size-12 rounded-full border-2 border-white object-cover sm:size-20 lg:size-24"
+      />
+    </div>
+
+    <!-- Featured Student Avatar & Attached Speech-Bubble Quote Card -->
+    <div
+      class="absolute top-[4%] left-1/2 z-30 flex -translate-x-1/2 flex-col items-center sm:top-[8%] sm:left-[66%] sm:translate-x-0"
+    >
+      <!-- Pulse Rings Avatar -->
+      <div
+        class="relative grid aspect-square size-28 shrink-0 place-items-center sm:size-36 lg:size-40"
+      >
+        <div
+          class="animate-pulse-ring-1 absolute inset-0 aspect-square rounded-full bg-lilac"
+        >
+        </div>
+        <div
+          class="animate-pulse-ring-2 absolute inset-0 aspect-square rounded-full bg-[#e0d5f4]"
+        >
+        </div>
+        <div
+          class="animate-pulse-ring-3 absolute inset-0 aspect-square rounded-full bg-[#c9b9e7]"
+        >
+        </div>
+        <Image
+          src={oliviaTranImage}
+          alt="Featured yoga student"
+          loading="lazy"
+          class="relative z-10 aspect-square size-20 rounded-full border-2 border-white object-cover shadow-md sm:size-24 lg:size-28"
+        />
+      </div>
+
+      <!-- Speech Bubble Quote Card -->
+      <blockquote
+        data-motion-item
+        class="motion-reveal relative mt-2.5 w-[min(88vw,330px)] rounded-3xl bg-[#30373f] p-5 text-white shadow-[0_24px_55px_rgba(28,31,35,0.22)] sm:w-[min(32vw,370px)] lg:p-6"
+      >
+        <!-- Speech Bubble Arrow Pointing Up -->
+        <div
+          class="absolute -top-2 left-10 size-0 border-x-8 border-b-8 border-x-transparent border-b-[#30373f]"
+        >
+        </div>
+        <p class="text-xs leading-5 text-white/90 lg:text-sm">
+          “Joining this yoga community has been life-changing. The instructors
+          are incredibly knowledgeable, and the classes have helped me find
+          inner peace and improve my flexibility.”
+        </p>
+        <footer class="mt-4">
+          <p class="text-base font-semibold lg:text-lg">Emily R.</p>
+          <p class="mt-0.5 text-xs text-white/45">Graphic designer</p>
+        </footer>
+      </blockquote>
+    </div>
+
+    <!-- Section Heading -->
+    <div
+      class="motion-reveal absolute top-[52%] left-1/2 z-20 w-[min(88%,440px)] -translate-x-1/2 text-center sm:top-[38%]"
+    >
+      <span
+        data-motion-item
+        class="inline-flex rounded-full border border-black/20 bg-white px-4 py-1.5 text-xs"
+      >
+        Testimonial
+      </span>
+      <h2
+        data-motion-item
+        class="mt-3 text-4xl leading-[0.9] font-medium tracking-[-0.055em] sm:text-5xl lg:text-6xl"
+      >
+        Student<br />Testimonials
+      </h2>
+      <p
+        data-motion-item
+        class="mx-auto mt-4 max-w-md text-xs leading-5 text-black/65 sm:text-sm"
+      >
+        See how our members have reduced stress and enhanced well-being with our
+        support and guidance.
+      </p>
+    </div>
+  </div>
+</section>

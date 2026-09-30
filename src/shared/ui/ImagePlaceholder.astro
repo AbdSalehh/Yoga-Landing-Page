@@ -1,0 +1,36 @@
+---
+import { cn } from "../lib/utils";
+
+interface Properties {
+  label: string;
+  tone?: "sand" | "sky" | "lilac" | "sage" | "rose" | "charcoal";
+  className?: string;
+}
+
+const { label, tone = "sand", className } = Astro.props;
+
+const placeholderClassName = cn(
+  "relative flex min-h-48 overflow-hidden rounded-[1.75rem] border border-black/10",
+  tone === "sand" &&
+    "bg-gradient-to-br from-[#e6d9ca] via-[#c9af91] to-[#8c735b]",
+  tone === "sky" &&
+    "bg-gradient-to-br from-[#def7f9] via-[#a9e2e7] to-[#72b5bf]",
+  tone === "lilac" &&
+    "bg-gradient-to-br from-[#f1ebfa] via-[#d4c6eb] to-[#9685b5]",
+  tone === "sage" &&
+    "bg-gradient-to-br from-[#e0e9db] via-[#b0c0a7] to-[#73816e]",
+  tone === "rose" &&
+    "bg-gradient-to-br from-[#f4ded5] via-[#e3b09c] to-[#a47264]",
+  tone === "charcoal" &&
+    "bg-gradient-to-br from-[#62625e] via-[#393936] to-[#171715]",
+  className,
+);
+---
+
+<div class={placeholderClassName} role="img" aria-label={label}>
+  <div
+    class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.5),transparent_34%)]"
+  >
+  </div>
+  <span class="sr-only">{label}</span>
+</div>

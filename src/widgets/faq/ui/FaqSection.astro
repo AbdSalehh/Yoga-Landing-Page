@@ -1,0 +1,108 @@
+---
+import { AppButton } from "@/shared/ui";
+
+const frequentlyAskedQuestions = [
+  {
+    question: "What should I bring to a yoga class?",
+    answer:
+      "Bring a yoga mat, a water bottle, and comfortable clothing that allows you to move freely.",
+  },
+  {
+    question: "Do I need experience to join?",
+    answer:
+      "Not at all. Our beginner classes are designed to help you learn each pose with confidence.",
+  },
+  {
+    question: "What types of yoga do you offer?",
+    answer:
+      "We offer Hatha, Vinyasa, restorative yoga, breathwork, meditation, and prenatal sessions.",
+  },
+  {
+    question: "How early should I arrive?",
+    answer:
+      "Please arrive around 10–15 minutes before class so you have time to settle in.",
+  },
+  {
+    question: "What if I have an injury?",
+    answer:
+      "Tell your instructor before class. They will offer modifications suited to your comfort and ability.",
+  },
+];
+---
+
+<section
+  id="about"
+  data-motion-section
+  class="motion-reveal scroll-mt-28 bg-white py-4"
+>
+  <div
+    class="grid gap-14 rounded-[2.25rem] border border-black/10 bg-white px-7 py-16 sm:px-12 lg:grid-cols-[0.7fr_1.3fr] lg:px-16 lg:py-24"
+  >
+    <div>
+      <span
+        data-motion-item
+        class="inline-flex rounded-full border border-black/15 px-4 py-2 text-xs"
+      >
+        Questions & answers
+      </span>
+      <h2
+        data-motion-item
+        class="mt-7 text-5xl leading-[0.92] font-medium tracking-[-0.055em] sm:text-6xl"
+      >
+        Frequently asked questions.
+      </h2>
+      <p data-motion-item class="mt-7 max-w-sm text-sm leading-6 text-black/55">
+        Still curious about our yoga classes? Our team is here to answer every
+        question and help you get started.
+      </p>
+      <div data-motion-item>
+        <AppButton href="#contact" variant="outline" className="mt-8">
+          Talk to our team
+        </AppButton>
+      </div>
+    </div>
+
+    <div class="border-t border-black/15">
+      {
+        frequentlyAskedQuestions.map(
+          (frequentlyAskedQuestion, questionIndex) => (
+            <details
+              name="faq-accordion"
+              data-motion-item
+              class="faq-item group border-b border-black/15"
+              open={questionIndex === 0}
+            >
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-sm font-semibold select-none">
+                {frequentlyAskedQuestion.question}
+                <span class="text-xl font-normal transition-transform duration-300 group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <div class="grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-out group-open:grid-rows-[1fr] group-open:opacity-100">
+                <div class="overflow-hidden">
+                  <p class="max-w-2xl pr-10 pb-6 text-sm leading-6 text-black/55">
+                    {frequentlyAskedQuestion.answer}
+                  </p>
+                </div>
+              </div>
+            </details>
+          ),
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  const faqItems = document.querySelectorAll<HTMLDetailsElement>(".faq-item");
+
+  faqItems.forEach((targetItem) => {
+    targetItem.querySelector("summary")?.addEventListener("click", () => {
+      faqItems.forEach((item) => {
+        if (item !== targetItem && item.hasAttribute("open")) {
+          item.removeAttribute("open");
+        }
+      });
+    });
+  });
+</script>

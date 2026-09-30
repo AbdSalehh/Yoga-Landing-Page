@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Geist";
+  src: url("../../shared/assets/fonts/Geist/Geist-VariableFont_wght.ttf")
+    format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Geist", sans-serif;
+  --color-ink: #11110f;
+  --color-lilac: #eee4f8;
+  --color-peach: #ff9874;
+  --color-mist: #f5f4f1;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+    background: #ffffff;
+    color: var(--color-ink);
+    font-family: "Geist", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button,
+  a,
+  summary {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-ring-1 {
+  animation: pulse-ring 3.3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.animate-pulse-ring-2 {
+  animation: pulse-ring 3.3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite 1.1s;
+}
+
+.animate-pulse-ring-3 {
+  animation: pulse-ring 3.3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite 2.2s;
+}
